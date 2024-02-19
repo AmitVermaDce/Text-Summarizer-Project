@@ -2,9 +2,9 @@ import os
 from pathlib import Path
 import logging
 
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s: ')
+logging.basicConfig(level=logging.INFO, format="[%(asctime)s]: %(message)s: ")
 
-project_name = 'textSummarizer'
+project_name = "textSummarizer"
 
 list_of_files = [
     ".github/workflow/.gitkeep",
@@ -24,19 +24,19 @@ list_of_files = [
     "Dockerfile",
     "requirements.txt",
     "setup.py",
-    "research/trails.ipynb",  
-    "README.md",  
+    "research/trails.ipynb",
+    "README.md",
 ]
 
 for filepath in list_of_files:
     file_path = Path(filepath)
     filedir, filename = os.path.split(file_path)
     # print(filedir, "--------------", filename)
-    
+
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
         logging.info(f"Creating directory: {filedir} for the file {filename}")
-        
+
     if (not os.path.exists(file_path)) or (os.path.getsize(file_path) == 0):
         with open(file_path, "w") as f:
             pass
